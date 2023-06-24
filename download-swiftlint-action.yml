@@ -1,0 +1,17 @@
+name: 'Download SwiftLint Action'
+description: 'Downloads the specified version of SwiftLint binary'
+
+inputs:
+  swiftlint-version:
+    description: 'The version of SwiftLint to download'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: 'Download SwiftLint'
+      run: |
+        curl -LO "https://github.com/realm/SwiftLint/releases/download/${{ inputs.swiftlint-version }}/portable_swiftlint.zip"
+        unzip portable_swiftlint.zip
+        rm portable_swiftlint.zip
+
