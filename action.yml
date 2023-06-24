@@ -10,6 +10,7 @@ runs:
   using: 'composite'
   steps:
     - name: 'Download SwiftLint'
+      shell: bash
       run: |
         curl -LO "https://github.com/realm/SwiftLint/releases/download/${{ inputs.swiftlint-version }}/portable_swiftlint.zip"
         unzip portable_swiftlint.zip
